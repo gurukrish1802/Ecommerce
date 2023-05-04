@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/0732a5fe8f.js" crossorigin="anonymous"></script>
+
+
+         <link rel="stylesheet" href="/css/home.css">
+    <title>Ecommerce</title>
+
+</head>
+<body class="accntb">
+    <div id="header">
+        <h3 id="title">gkBUY</h3>
+        <ul id="nav">
+            <li><a href="/c/<%=val.id%>"> Contact</a> </li>
+            <%if(val!=""){%>
+           <li> <a href="/<%=val.id%>/home"><i id="icon" class="fa-solid fa-house"></i></a> </li>
+          
+            <%if(val.isAdmin){%>
+
+
+            <li><a href="/api/products/product/adminall/<%=val.id%>">Products</a></li>
+            <li> <a href="/api/order/allorder/<%=val.id%>"><i id="icon">Order</i></a></li>
+
+
+
+            <%}else{%>
+                <li> <a href="/api/order/order/<%=val.id%>"><i id="icon">Order</i></a></li>
+
+                <li> <a href="/api/cart/cart/<%=val.id%>"><i id="icon" class="fa-solid fa-cart-plus"></i></a></li>
+
+            <li><a href="/api/products/product/<%=val.id%>">Products</a></li>
+            <%}%>
+           <li><a href="/api/user/<%=val.id%>">Details</a></li>
+           <% }else{%>
+            
+            <li> <a href="/"><i id="icon" class="fa-solid fa-house"></i>Home</a> </li>
+            <li><a href="/api/products/product/">Products</a></li>
+            
+        
+           <%}%>
+
+                 
+        </ul>
+   
+       
+      
+        
+       
+        <%if(val.userName){%>
+            <h6>Welcome__<%=val.userName%></h6>
+        
+        <%}else{%>
+
+            <h6> <a href="/lr">Login/Register</a> </h6>
+    
+            <%}%>
+
+        
+    </div>
+
+        <!-------------->
+     
+
+<div class="accountpage">
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-2">
+                <div class="form-container">
+                    <div class="from-btn">
+                        <span onclick=loginf()>Login</span>
+                        <span onclick=regf()>Register</span>
+                        <h1 id="indicator"></h1>
+                    </div>
+                    <form action="/api/auth/login" method="post" id="loginform">
+                        <input type="text" placeholder="Username" name="userName">
+                        <input type="password" placeholder="password" name="password">
+                        <button type="submit " class="subbtn ">Login</button>
+                        <a href="//"> Forgot password</a>
+                    </form>
+                    <form action="/api/auth/reg" method="post" id="regform">
+                        <input type="text" placeholder="Username" name="userName">
+                        <input type="email" placeholder="email" name="email">
+                        <input type="password" placeholder="password" name="password">
+                        <button type="submit " class="subbtn ">Register</button>
+                    </form>
+
+                </div>
+
+            </div>
+            
+            
+            
+            
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<!---------------->
+
+
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col-1"> 
+                <h3>Dowload Our App </h3>
+                <p>Download App for Android and IOS modile</p><br>
+                <div class="logo">
+                <i class="fa-brands fa-google-play fa-3x"> Google</i><br>
+                <i class="fa-brands fa-apple fa-3x"> apple</i>
+            </div>
+            </div>
+            <div class="footer-col-2">
+                 <img src="/img/logo.png" alt="" srcset="">
+                <p>Our main goal is to statisfy the customer</p></div>
+            <div class="footer-col-3">
+                <h3>Useful Links</h3>
+            <ul>
+                <li>Coupons</li>
+                <li>Blog Post</li>
+                <li>Return Policy</li>
+                <li>Join Affiliate</li>
+            </ul> </div>
+            <div class="footer-col-4">
+                <h3>Follow Us</h3>
+            <ul>
+                <li>Facebook</li>
+                <li>Twitter</li>
+                <li>Instagram</li>
+                <li>Youtube</li>
+            </ul> </div>
+            
+
+        </div>
+    </div>
+</div>
+
+        
+<script src="/js/home.js"></script>
+    
+</body>
+</html>

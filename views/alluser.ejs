@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="/css/home.css">
+    <title>All User</title>
+</head>
+<div id="header">
+    <h3 id="title">gkBUY</h3>
+    <ul id="nav">
+        <li><a href="/c/<%=val.id%>"> Contact</a> </li>
+        <%if(val!=""){%>
+       <li> <a href="/<%=val.id%>/home"><i id="icon" class="fa-solid fa-house"></i></a> </li>
+      
+        <%if(val.isAdmin){%>
+
+
+        <li><a href="/api/products/product/adminall/<%=val.id%>">Products</a></li>
+        <li> <a href="/api/order/allorder/<%=val.id%>"><i id="icon">Order</i></a></li>
+
+
+
+        <%}else{%>
+            <li> <a href="/api/order/order/<%=val.id%>"><i id="icon">Order</i></a></li>
+
+            <li> <a href="/api/cart/cart/<%=val.id%>"><i id="icon" class="fa-solid fa-cart-plus"></i></a></li>
+
+        <li><a href="/api/products/product/<%=val.id%>">Products</a></li>
+        <%}%>
+       <li><a href="/api/user/<%=val.id%>">Details</a></li>
+       <% }else{%>
+        
+        <li> <a href="/"><i id="icon" class="fa-solid fa-house"></i>Home</a> </li>
+        <li><a href="/api/products/product/">Products</a></li>
+        
+    
+       <%}%>
+
+             
+    </ul>
+
+   
+  
+    
+   
+    <%if(val.userName){%>
+        <h6>Welcome__<%=val.userName%></h6>
+    
+    <%}else{%>
+
+        <h6> <a href="/lr">Login/Register</a> </h6>
+
+        <%}%>
+
+    
+</div>
+   
+        <%if(vals.length > 0){%>
+           
+        <%vals.forEach(val=>{%>
+            <div id="alluser">
+            <h2> id:<%=val._id %></h2>
+            <h2>UserName:<%=val.userName %></h2>
+            <h2>Email:<%=val.email %></h2><br>
+        </div>
+        <%})%> 
+        <%}%>
+        
+        
+      
+   
+
+
+</body>
+</html>

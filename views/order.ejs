@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/0732a5fe8f.js" crossorigin="anonymous"></script>
+
+
+         <link rel="stylesheet" href="/css/home.css">
+    <title>Ecommerce</title>
+
+</head>
+<body>
+    <div id="header">
+        <h3 id="title">gkBUY</h3>
+        <ul id="nav">
+            <li><a href="/c/<%=val.id%>"> Contact</a> </li>
+            <%if(val!=""){%>
+           <li> <a href="/<%=val.id%>/home"><i id="icon" class="fa-solid fa-house"></i></a> </li>
+          
+            <%if(val.isAdmin){%>
+
+
+            <li><a href="/api/products/product/adminall/<%=val.id%>">Products</a></li>
+            <li> <a href="/api/order/allorder/<%=val.id%>"><i id="icon">Order</i></a></li>
+
+
+
+            <%}else{%>
+                <li> <a href="/api/order/order/<%=val.id%>"><i id="icon">Order</i></a></li>
+
+                <li> <a href="/api/cart/cart/<%=val.id%>"><i id="icon" class="fa-solid fa-cart-plus"></i></a></li>
+
+            <li><a href="/api/products/product/<%=val.id%>">Products</a></li>
+            <%}%>
+           <li><a href="/api/user/<%=val.id%>">Details</a></li>
+           <% }else{%>
+            
+            <li> <a href="/"><i id="icon" class="fa-solid fa-house"></i>Home</a> </li>
+            <li><a href="/api/products/product/">Products</a></li>
+            
+        
+           <%}%>
+
+                 
+        </ul>
+   
+       
+      
+        
+       
+        <%if(val.userName){%>
+            <h6>Welcome__<%=val.userName%></h6>
+        
+        <%}else{%>
+
+            <h6> <a href="/lr">Login/Register</a> </h6>
+    
+            <%}%>
+
+        
+    </div>
+    
+
+        <!-------------->
+     
+
+
+
+
+<!------------------------->
+
+  <table>
+    <tr>
+        <th>Orders</th>
+        
+    </tr>
+    <%if(prod!=""){%>
+        <% prod.forEach(product => {%>
+    <tr>
+      <td><div class="cartinfo">
+        <a href="/api/products/pddetails/<%=val.id%>/<%=product.id%>"><img src="/img/<%=product.img%>" alt="" srcset=""></a>
+        
+            <a href="/api/products/pddetails/<%=val.id%>/<%=product.id%>"> <p><%=product.title%></p></a> 
+        <small><%=product.prize%></small>              
+        <a href="/api/order/remove/<%=val.id%>/<%=product.id%>">Remove</a>
+       
+
+        </div>
+       
+      </td>
+       
+        
+       
+    </tr>
+    <%})%>
+    <br>
+
+    <%}else{%>
+       <h1>Create Order</h1> 
+       <br>
+            <%}%>
+  </table>
+
+
+
+
+<!---------------->
+<div class="brands">
+    <div class="smallcontainer">
+        <div class="row">
+            <div class="col-5">
+                <img src="/img/brand1.png" alt="hjvfjc" srcset="">
+            </div>
+            <div class="col-5">
+                <img src="/img/brand2.jfif" alt="vvhyihy" srcset="">
+            </div>
+            <div class="col-5">
+                <img src="/img/brand3.png" alt="" srcset="">
+            </div>
+            <div class="col-5">
+                <img src="/img/brand4.png" alt="" srcset="">
+            </div>
+            <div class="col-5">
+                <img src="/img/brand5.png" alt="" srcset="">
+            </div>
+           
+        </div>
+    </div>
+</div>
+
+
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col-1"> 
+                <h3>Dowload Our App </h3>
+                <p>Download App for Android and IOS modile</p><br>
+                <div class="logo">
+                <i class="fa-brands fa-google-play fa-3x"> Google</i><br>
+                <i class="fa-brands fa-apple fa-3x"> apple</i>
+            </div>
+            </div>
+            <div class="footer-col-2">
+                 <img src="/img/logo.png" alt="" srcset="">
+                <p>Our main goal is to statisfy the customer</p></div>
+            <div class="footer-col-3">
+                <h3>Useful Links</h3>
+            <ul>
+                <li>Coupons</li>
+                <li>Blog Post</li>
+                <li>Return Policy</li>
+                <li>Join Affiliate</li>
+            </ul> </div>
+            <div class="footer-col-4">
+                <h3>Follow Us</h3>
+            <ul>
+                <li>Facebook</li>
+                <li>Twitter</li>
+                <li>Instagram</li>
+                <li>Youtube</li>
+            </ul> </div>
+            
+
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+</body>
+</html>
